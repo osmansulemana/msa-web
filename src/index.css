@@ -1,9 +1,16 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-sans: 'Poppins', sans-serif;
+  --color-msa-primary: #2563eb;
   --color-msa-blue: #000000;
   --color-msa-light: #333333;
   --color-msa-accent: #ffffff;
+
+  --font-weight-black: 800;
+  --font-weight-extrabold: 700;
+  --font-weight-bold: 600;
+  --font-weight-semibold: 500;
 }
 
 @layer utilities {
