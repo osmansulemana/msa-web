@@ -6,11 +6,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', className = '', ...props }) => {
-  const baseStyle = "inline-flex items-center justify-center px-6 py-3 text-sm font-bold tracking-wide transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer";
+  const baseStyle = "inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold tracking-wider uppercase transition-all duration-300 focus:outline-none cursor-pointer";
   const variants = {
-    primary: "bg-msa-primary hover:bg-msa-light text-white shadow-lg shadow-msa-primary/30 border-2 border-msa-primary hover:border-msa-light",
-    secondary: "bg-white text-slate-900 hover:bg-slate-100 shadow-md border-2 border-white",
-    outline: "bg-transparent border-2 border-white text-white hover:bg-white/10",
+    primary: "bg-msa-primary hover:bg-blue-700 text-white shadow-lg shadow-msa-primary/25 border-2 border-msa-primary hover:border-blue-700",
+    secondary: "bg-white text-slate-900 hover:bg-slate-100 shadow-md border-2 border-white hover:border-slate-200",
+    outline: "bg-transparent border-2 border-white/60 text-white hover:bg-white hover:text-slate-900",
     dark: "bg-slate-900 text-white hover:bg-slate-800 border-2 border-slate-900"
   };
 

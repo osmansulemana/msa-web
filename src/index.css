@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Poppins', sans-serif;
-  --color-msa-primary: #2563eb;
-  --color-msa-blue: #000000;
-  --color-msa-light: #333333;
-  --color-msa-accent: #ffffff;
+  --font-sans: 'Barlow', sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --color-msa-primary: #1d4ed8;
+  --color-msa-midnight: #040b16;
+  --color-msa-volt: #ccff00;
 
   --font-weight-black: 800;
   --font-weight-extrabold: 700;
@@ -28,4 +28,29 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Marquee ticker animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Editorial heading style */
+.heading-editorial {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
 }
