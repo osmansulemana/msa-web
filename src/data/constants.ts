@@ -25,17 +25,15 @@ export interface Stat {
 }
 
 export const IMAGES: ImageAssets = {
-  hero: '/5.jpeg',
-  training:
-    'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2000&auto=format&fit=crop',
-  youth: '/11.jpg',
-  elite: '/9.jpg',
+  hero: '/16.jpeg',
+  training: '/12.jpeg',
+  youth: '/17.jpeg',
+  elite: '/14.jpeg',
   keeper: '/goalkeeper_union.png',
   coach: '/2.jpeg',
   gallery1: '/10.jpg',
-  gallery2: '/8.jpg',
-  gallery3:
-    'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800&auto=format&fit=crop',
+  gallery2: '/18.jpeg',
+  gallery3: '/15.jpeg',
   gallery4: '/7.jpeg',
 };
 
@@ -99,8 +97,7 @@ export const COACHES: Coach[] = [
   {
     name: 'Muhammed Mutawakil',
     role: 'Head Academy Director',
-    image:
-      '/1.jpeg',
+    image: '/1.jpeg',
     bio: 'Former professional with 15 years experience. UEFA Pro License holder.',
   },
   {

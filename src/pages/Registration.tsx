@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button } from '../components/Button';
 import { IMAGES } from '../data/constants';
 
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
 export const Registration = () => {
   const [formData, setFormData] = useState({
     parentName: '',
@@ -13,25 +15,53 @@ export const Registration = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setError('');
 
-    // Reset form and close after delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        parentName: '',
-        playerName: '',
-        email: '',
-        phone: '',
-        program: 'junior',
-        experience: 'beginner'
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Registration: ${formData.playerName} — ${formData.program}`,
+          from_name: 'MSA Registration',
+          'Parent / Guardian': formData.parentName,
+          'Player Name': formData.playerName,
+          Email: formData.email,
+          Phone: formData.phone,
+          Program: formData.program,
+        }),
       });
-    }, 3000);
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            parentName: '',
+            playerName: '',
+            email: '',
+            phone: '',
+            program: 'junior',
+            experience: 'beginner'
+          });
+        }, 3000);
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -178,12 +208,16 @@ export const Registration = () => {
                   </div>
                 </div>
 
+                {error && (
+                  <p className="text-red-600 text-sm font-medium bg-red-50 border border-red-200 px-4 py-3">{error}</p>
+                )}
+
                 <div className="pt-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-100">
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold max-w-xs">
                     By submitting, you agree to our <a href="#" className="text-slate-900 hover:text-msa-primary underline underline-offset-4 pointer-events-none">Terms</a>
                   </p>
-                  <Button type="submit" variant="primary" className="w-full sm:w-auto px-10 py-4 text-sm whitespace-nowrap">
-                    Submit Application
+                  <Button type="submit" variant="primary" className="w-full sm:w-auto px-10 py-4 text-sm whitespace-nowrap" disabled={isLoading}>
+                    {isLoading ? 'Submitting...' : 'Submit Application'}
                   </Button>
                 </div>
               </form>
