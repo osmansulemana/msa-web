@@ -25,22 +25,18 @@ export interface Stat {
 }
 
 export const IMAGES: ImageAssets = {
-  hero: '/img1.jpeg',
+  hero: '/5.jpeg',
   training:
     'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2000&auto=format&fit=crop',
-  youth:
-    'https://images.unsplash.com/photo-1510566337590-2fc1f21d0faa?q=80&w=800&auto=format&fit=crop',
-  elite:
-    'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=800&auto=format&fit=crop',
+  youth: '/11.jpg',
+  elite: '/9.jpg',
   keeper: '/goalkeeper_union.png',
-  coach: '/coach_mentoring.png',
-  gallery1:
-    'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=800&auto=format&fit=crop',
-  gallery2:
-    'https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=800&auto=format&fit=crop',
+  coach: '/2.jpeg',
+  gallery1: '/10.jpg',
+  gallery2: '/8.jpg',
   gallery3:
     'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800&auto=format&fit=crop',
-  gallery4: '/goal_celebration.png',
+  gallery4: '/7.jpeg',
 };
 
 export const PROGRAMS: Program[] = [
@@ -101,10 +97,10 @@ export interface FAQ {
 
 export const COACHES: Coach[] = [
   {
-    name: 'David Silva',
+    name: 'Muhammed Mutawakil',
     role: 'Head Academy Director',
     image:
-      'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=800&auto=format&fit=crop',
+      '/1.jpeg',
     bio: 'Former professional with 15 years experience. UEFA Pro License holder.',
   },
   {
